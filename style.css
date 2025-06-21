@@ -1,0 +1,154 @@
+body.dark-theme {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.main-header {
+    background: #1e1e1e;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #f0f0f0;
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    font-weight: 500;
+    color: #aaa;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #1f1f1f 0%, #121212 100%);
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #00adb5;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #028892;
+}
+
+.btn-outline {
+    border: 2px solid #00adb5;
+    color: #00adb5;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #00adb5;
+    color: #fff;
+}
+
+.section {
+    padding: 6rem 1rem;
+}
+
+.projects-section {
+    background-color: #181818;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: #1f1f1f;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #222;
+    color: #f0f0f0;
+}
+
+.footer {
+    border-top: 1px solid #333;
+    background: #1e1e1e;
+    font-size: 0.9rem;
+}

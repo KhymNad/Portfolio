@@ -1,3 +1,4 @@
+/* Dark Theme Base */
 body.dark-theme {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -10,18 +11,21 @@ body.dark-theme {
   cursor: none; /* hide default cursor for glow effect */
 }
 
+/* Headings */
 h1, h2, h3 {
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
+/* Paragraphs */
 p {
   line-height: 1.6;
   max-width: 900px;
   margin: 0 auto 2rem;
 }
 
+/* Hero Section */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -35,6 +39,7 @@ p {
   z-index: 0;
 }
 
+/* Background glow & particles */
 .hero::before {
   content: '';
   position: absolute;
@@ -60,19 +65,6 @@ p {
   z-index: 0;
 }
 
-.hero .container {
-  position: relative;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s ease;
-}
-
-.hero.in-view .container {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @keyframes rotateGlow {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -83,19 +75,50 @@ p {
   100% { transform: translate(200px, 150px); }
 }
 
+/* Typing animation for name */
 .hero h1 {
   font-size: 4rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  margin: 0 auto;
+  width: fit-content;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #00adb5;
+  animation: typing 1.5s steps(15, end) forwards, blinkCursor 0.7s step-end 2 forwards;
 }
 
+@keyframes typing {
+  from { width: 0; }
+  to { width: 9ch; }
+}
+
+@keyframes blinkCursor {
+  0%, 99% {
+    border-color: #00adb5;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Tagline fade-in after typing */
 .hero p {
   font-size: 1.3rem;
   color: #a0e1e9;
   text-shadow: 0 0 6px rgba(0,173,181,0.5);
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease 2s; 
 }
 
+.hero.in-view p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Layout */
 .section {
   padding: 8rem 1rem;
   max-width: 1200px;
@@ -110,6 +133,7 @@ p {
   transform: translateY(0);
 }
 
+/* About Section Hover */
 #about {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
@@ -127,6 +151,7 @@ p {
   box-shadow: 0 12px 45px rgba(0,173,181, 0.3);
 }
 
+/* Projects Section */
 .projects-section {
   background: linear-gradient(145deg, #181818, #121212);
   padding: 8rem 1rem;
@@ -162,6 +187,7 @@ p {
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
+/* Profile Image */
 .profile-img {
   width: 150px;
   height: 150px;
@@ -171,6 +197,7 @@ p {
   box-shadow: 0 0 25px rgba(0,173,181,0.4);
 }
 
+/* Contact Form */
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
@@ -195,6 +222,7 @@ p {
   outline: none;
 }
 
+/* Buttons */
 .btn {
   padding: 0.75rem 2rem;
   border-radius: 50px;
@@ -226,6 +254,7 @@ p {
   box-shadow: 0 6px 20px rgba(0,173,181,0.5);
 }
 
+/* Footer */
 .footer {
   border-top: 1px solid #333;
   background: #1e1e1e;
@@ -249,4 +278,48 @@ p {
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
   transition: transform 0.1s ease-out;
+}
+
+/* Hide scrollbar (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar (Firefox) */
+html {
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1000;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #555;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dot.active {
+  background: #00adb5;
+  border: 2px solid #00adb5;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(0,173,181,0.7);
+}
+
+.dot:hover {
+  opacity: 1;
 }

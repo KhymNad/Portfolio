@@ -84,3 +84,25 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section, .hero').forEach((el) => {
   observer.observe(el);
 });
+
+// Smooth scroll for navigation dots
+const sections = document.querySelectorAll("section");
+const dots = document.querySelectorAll(".dot");
+
+window.addEventListener("scroll", () => {
+let current = "";
+sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (pageYOffset >= sectionTop - 200) {
+    current = section.getAttribute("id");
+    }
+});
+
+dots.forEach(dot => {
+    dot.classList.remove("active");
+    if (dot.getAttribute("href").includes(current)) {
+    dot.classList.add("active");
+    }
+});
+});
+

@@ -9,40 +9,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
-    <!-- <header class="main-header">
-        <nav class="container d-flex justify-content-between align-items-center py-3">
-            <a class="logo" href="#">Khym Nad</a>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Privacy</a>
-            </div>
-        </nav>
-    </header> -->
+
     <div class="cursor"></div>
+
     <div class="scroll-indicator">
         <a href="#hero" class="dot active"></a>
-        <a href="#about" class="dot"></a>
         <a href="#projects" class="dot"></a>
         <a href="#contact" class="dot"></a>
     </div>
 
     <main role="main">
-        <section class="hero">
-            <div class="container text-center">
-                <h1><span class="typewriter">KHYM NAD</span></h1>
-                <p>FullStack Developer</p>
-                <div class="hero-buttons">
+        <section id="hero" class="hero">
+            <div class="container hero-container">
+                <div class="hero-left">
+                    <h1><span class="typewriter">KHYM NAD</span></h1>
+                    <p>FullStack Developer</p>
+                </div>
+                <div class="hero-right">
+                    <img src="images/profile.jpg" alt="Profile" class="profile-img">
+                    <h2>About Me</h2>
+                    <p>I'm a full-stack developer passionate about building complete, end-to-end web applications. From crafting intuitive front-end interfaces to developing robust back-end systems, I enjoy bringing ideas to life across the entire technology stack. I focus on clean code, scalability, usability, and delivering seamless user experiences with modern web technologies.</p>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
+        <!-- <section id="about" class="section">
             <div class="container text-center">
                 <img src="images/profile.jpg" alt="Profile" class="profile-img">
                 <h2>About Me</h2>
                 <p>I'm a full-stack developer passionate about building complete, end-to-end web applications. From crafting intuitive front-end interfaces to developing robust back-end systems, I enjoy bringing ideas to life across the entire technology stack. I focus on clean code, scalability, usability, and delivering seamless user experiences with modern web technologies.</p>
             </div>
-        </section>
+        </section> -->
 
         <section id="projects" class="section projects-section">
             <div class="container text-center">
@@ -64,16 +61,39 @@
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <div class="container text-center">
+        <section id="contact">
+        <div class="contact-flex">
+            <div class="contact-info">
+                <h2>Let's Connect!</h2>
+                <p>
+                    I'm always interested in new opportunities and internships. Feel free to reach out!
+                </p>
+                <div class="info-row">
+                    <!-- Email Icon SVG -->
+                    <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm0 2.236V20h16V8.236l-8 7.001-8-7.001z"/></svg>
+                    <span>khymanad@gmail.com</span>
+                </div>
+                <div class="info-row">
+                    <!-- Phone Icon SVG -->
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/></svg>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="info-row">
+                    <!-- Location Icon SVG -->
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
+                    <span>Edmonton, AB</span>
+                </div>
+            </div>
+            <div class="contact-wrapper">
                 <h2>Contact</h2>
                 <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required />
-                    <input type="email" placeholder="Your Email" required />
-                    <textarea rows="4" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <input type="text" placeholder="Your Name*" required>
+                    <input type="email" placeholder="Your Email*" required>
+                    <textarea rows="5" placeholder="Your Message*" required></textarea>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
                 </form>
             </div>
+        </div>
         </section>
     </main>
 
@@ -81,7 +101,6 @@
         &copy; 2025 Khym Nad. All Rights Reserved.
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

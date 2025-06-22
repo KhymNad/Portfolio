@@ -8,7 +8,7 @@ body.dark-theme {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none; /* hide default cursor for glow effect */
+  cursor: none !important; /* hide default cursor for glow effect */
 }
 
 /* Headings */
@@ -107,10 +107,10 @@ p {
   font-size: 1.3rem;
   color: #a0e1e9;
   text-shadow: 0 0 6px rgba(0,173,181,0.5);
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 1s ease 2s; 
+  transition: all 1s ease 1.6s; 
 }
 
 .hero.in-view p {
@@ -142,8 +142,10 @@ p {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   padding: 5rem 2rem;
   margin: 5rem auto;
+  backdrop-filter: blur(20px); /* keep constant */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform;
+  will-change: transform, box-shadow; /* smoother */
+  transform: translateZ(0);
 }
 
 #about:hover {
@@ -274,10 +276,12 @@ p {
   background: radial-gradient(circle, rgba(0,173,181,0.4) 0%, transparent 60%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 999;
+  z-index: 9999;
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
-  transition: transform 0.1s ease-out;
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.8);
+  /* Removed transition on transform to avoid lag */
+  transition: box-shadow 0.2s ease;
 }
 
 /* Hide scrollbar (Chrome, Edge, Safari) */

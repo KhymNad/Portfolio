@@ -219,22 +219,33 @@ p {
   margin-bottom: 1rem;
   position: relative;
   z-index: 10;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease 1.8s;
+}
+
+.social-icons.animated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .social-icons a {
   color: #f0f0f0 !important;
   cursor: pointer;
-  transition: color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
   display: inline-block;
   position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+  transform-origin: center;
+  filter: drop-shadow(0 0 0 transparent);
+  animation: floatUpDown 2s ease-in-out infinite;
+  animation-play-state: paused;
 }
 
 .social-icons a:hover {
   color: #00adb5 !important;
   filter: drop-shadow(0 0 8px #00adb5);
-  animation: floatUpDown 2s ease-in-out infinite;
-  transform-origin: center;
   transform: scale(1.1);
+  animation-play-state: running;
   text-decoration: none !important;
 }
 
@@ -281,18 +292,30 @@ p {
   transform: scale(1.2);
 }
 
-/* Projects Section */
+/* Project Section */
 .projects-section {
   background: linear-gradient(145deg, #181818, #121212);
-  padding: 8rem 1rem;
+  padding-top: 8rem;
   position: relative;
+  padding-bottom: 6rem; 
 }
 
+.projects-section h2 {
+  text-align: center;
+  color: #00adb5;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 12px rgba(0,173,181,0.7);
+}
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
-  margin-top: 4rem;
+  max-width: 1300px;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-card {
@@ -303,6 +326,10 @@ p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   will-change: transform;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-card:hover {
@@ -329,7 +356,7 @@ p {
 
 /* Contact Section */
 #contact {
-  padding: 8rem 1rem 10rem;
+  padding: 6rem 1rem 6rem;
   background: linear-gradient(145deg, #121212, #181818);
 }
 

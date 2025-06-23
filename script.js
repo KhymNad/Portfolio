@@ -74,3 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1); // Match the typing animation duration
   }
 });
+// Tagline fade-in after typing animation (only once)
+document.addEventListener('DOMContentLoaded', () => {
+  const tagline = document.querySelector('.hero-left p');
+  const socialIcons = document.querySelector('.social-icons');
+  
+  if (tagline) {
+    setTimeout(() => {
+      tagline.classList.add('animated');
+      socialIcons?.classList.add('animated');
+    }, 1); 
+  }
+});

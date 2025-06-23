@@ -26,6 +26,7 @@ p {
 
 /* Hero Section and overlays */
 .hero {
+  border-top: 10px solid #5af0f7;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -239,6 +240,7 @@ p {
   filter: drop-shadow(0 0 0 transparent);
   animation: floatUpDown 2s ease-in-out infinite;
   animation-play-state: paused;
+  overflow: visible;
 }
 
 .social-icons a:hover {
@@ -250,12 +252,12 @@ p {
 }
 
 .social-icons a svg {
+  margin-top: 0.5rem;
   stroke: currentColor;
-  width: 40px;
+  width: 50px;
   height: 40px;
   fill: none;
   transition: stroke 0.3s ease, filter 0.3s ease, transform 0.3s ease;
-  vertical-align: middle;
   display: block;
 }
 

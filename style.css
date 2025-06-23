@@ -35,7 +35,6 @@ p {
   align-items: center;
   justify-content: center;
   background: #151515;
-  /* overlays */
   z-index: 0;
 }
 
@@ -75,29 +74,6 @@ p {
   0% { transform: translate(0, 0); }
   100% { transform: translate(200px, 150px); }
 }
-
-/* Hero Divider - arch SVG container */
-/* .hero-divider {
-  position: relative;
-  width: 100vw;
-  height: 150px;
-  background: #151515; match hero background
-  overflow: hidden;
-  margin-top: 0; no gap
-} */
-
-/* Inline SVG styling */
-/* .hero-divider svg {
-  display: block;
-  width: 150vw; wider to stretch arch
-  height: 150px;
-  transform: translateX(-25vw); center the arch
-} */
-
-/* .hero-divider svg path {
-  fill: #151515; match hero background exactly
-} */
-
 
 /* Hero container */
 .hero-container {

@@ -6,19 +6,19 @@ let currentX = mouseX;
 let currentY = mouseY;
 const ease = 0.15;
 
-window.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+// window.addEventListener('mousemove', e => {
+//   mouseX = e.clientX;
+//   mouseY = e.clientY;
+// });
 
-function animateCursor() {
-  currentX += (mouseX - currentX) * ease;
-  currentY += (mouseY - currentY) * ease;
-  cursor.style.left = currentX + 'px';
-  cursor.style.top = currentY + 'px';
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
+// function animateCursor() {
+//   currentX += (mouseX - currentX) * ease;
+//   currentY += (mouseY - currentY) * ease;
+//   cursor.style.left = currentX + 'px';
+//   cursor.style.top = currentY + 'px';
+//   requestAnimationFrame(animateCursor);
+// }
+// animateCursor();
 
 // Fade-in on scroll (IntersectionObserver)
 const observer = new IntersectionObserver(entries => {

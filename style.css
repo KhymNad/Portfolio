@@ -8,7 +8,6 @@ body.dark-theme {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none !important;
 }
 
 /* Headings */
@@ -25,34 +24,37 @@ p {
   margin: 0 auto 2rem;
 }
 
-/* Hero Section */
+/* Hero Section and overlays */
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
+  padding: 4rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1rem;
-  position: relative;
-  overflow: hidden;
   background: radial-gradient(circle at 50% 30%, #1a1a1a 0%, #111 100%);
   z-index: 0;
 }
 
-.hero::before {
+.hero::before,
+.hero::after {
   content: '';
   position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero::before {
   width: 200%;
   height: 200%;
   top: -50%;
   left: -50%;
   background: radial-gradient(circle, rgba(0,173,181,0.2) 0%, transparent 60%);
   animation: rotateGlow 60s linear infinite;
-  z-index: 0;
 }
 
 .hero::after {
-  content: '';
-  position: absolute;
   width: 300%;
   height: 300%;
   top: -100%;
@@ -60,7 +62,6 @@ p {
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
   opacity: 0.02;
   animation: moveParticles 100s linear infinite;
-  z-index: 0;
 }
 
 @keyframes rotateGlow {
@@ -73,21 +74,26 @@ p {
   100% { transform: translate(200px, 150px); }
 }
 
-/* Layout inside hero */
+/* Hero container */
 .hero-container {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 80px;
-  flex-wrap: wrap;
   max-width: 1200px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .hero-left {
   flex: 1;
   min-width: 300px;
-  text-align: left; /* Align text left */
+  text-align: left;  /* Left align all text */
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem; /* space between name, tagline, icons */
 }
 
 .hero-left h1 {
@@ -112,23 +118,26 @@ p {
   100% { border-color: transparent; }
 }
 
-/* Tagline - animate once when class 'animated' added */
 .hero-left p {
   font-size: 1.8rem;
   color: #a0e1e9;
   text-shadow: 0 0 6px rgba(0,173,181,0.5);
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease 0.3s;
 }
 
+.hero-left h1 {
+    margin-left: 0;
+}
+
 .hero-left p.animated {
+    margin-left: 0;
   opacity: 1;
   transform: translateY(0);
 }
 
-/* About section moved to right in hero */
 .hero-right {
   flex: 1.5;
   min-width: 300px;
@@ -151,6 +160,77 @@ p {
 
 .hero-right p {
   margin-top: 1rem;
+}
+
+/* Social Icons outside hero-container */
+.social-icons {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: flex-start;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.social-icons a {
+  color: #f0f0f0 !important;
+  cursor: pointer;
+  transition: color 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.social-icons a:hover {
+  color: #00adb5 !important;
+  filter: drop-shadow(0 0 8px #00adb5);
+  animation: floatUpDown 2s ease-in-out infinite;
+  transform-origin: center;
+  transform: scale(1.1);
+  text-decoration: none !important;
+}
+
+.social-icons a svg {
+  stroke: currentColor;
+  width: 40px;
+  height: 40px;
+  fill: none;
+  transition: stroke 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+  vertical-align: middle;
+  display: block;
+}
+
+.social-icons a:hover svg {
+  stroke: #00adb5;
+  filter: drop-shadow(0 0 8px #00adb5);
+  transform: scale(1.1);
+  animation: floatUpDown 2s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0) scale(1.1);
+    filter: drop-shadow(0 0 8px #00adb5);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.12);
+    filter: drop-shadow(0 0 12px #00adb5);
+  }
+}
+
+/* Testing Circle and Square */
+.test-circle svg,
+.test-square svg {
+  stroke: #00adb5;
+  stroke-width: 1.5;
+  transition: stroke 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.test-circle:hover svg,
+.test-square:hover svg {
+  stroke: #5af0f7;
+  filter: drop-shadow(0 0 10px #5af0f7);
+  transform: scale(1.2);
 }
 
 /* Projects Section */
@@ -179,7 +259,7 @@ p {
 
 .project-card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0,173,181, 0.25);
+  box-shadow: 0 10px 25px rgba(0,173,181,0.25);
 }
 
 .project-card img {
@@ -199,7 +279,7 @@ p {
   box-shadow: 0 0 25px rgba(0,173,181,0.4);
 }
 
-/* Contact Section - Added padding to prevent squashing */
+/* Contact Section */
 #contact {
   padding: 8rem 1rem 10rem;
   background: linear-gradient(145deg, #121212, #181818);
@@ -211,12 +291,11 @@ p {
   max-width: 1100px;
   margin: 0 auto;
   align-items: stretch;
-  flex-wrap: nowrap; /* Prevent wrapping on wide screens */
+  flex-wrap: nowrap;
 }
 
-/* Updated Contact Info styling to match theme */
 .contact-info {
-  flex: 0 0 38%; /* fixed 38% width */
+  flex: 0 0 38%;
   min-width: 280px;
   background: linear-gradient(135deg, #121212, #181818);
   border-radius: 20px;
@@ -280,7 +359,7 @@ p {
 
 /* Contact Wrapper */
 .contact-wrapper {
-  flex: 0 0 60%; /* fixed 60% width */
+  flex: 0 0 60%;
   max-width: 700px;
   min-width: 320px;
   background: rgba(30, 30, 30, 0.85);
@@ -306,7 +385,7 @@ p {
 .contact-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* aligns inputs to the left */
+  align-items: flex-start;
   gap: 1.2rem;
   padding: 0 1rem;
 }
@@ -314,7 +393,7 @@ p {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 0.8rem 1rem;  /* less vertical padding to reduce height */
+  padding: 0.8rem 1rem;
   border: 1px solid #333;
   border-radius: 10px;
   margin-left: 0px;
@@ -327,7 +406,7 @@ p {
 }
 
 .contact-form textarea {
-  min-height: 100px;  /* shorter textarea */
+  min-height: 100px;
   resize: vertical;
 }
 
@@ -383,23 +462,6 @@ p {
   color: #aaa;
   padding: 2rem 1rem;
   text-shadow: 0 0 3px rgba(0,0,0,0.5);
-}
-
-/* Floating glowing custom cursor */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, rgba(0,173,181,0.4) 0%, transparent 60%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: screen;
-  box-shadow: 0 0 15px rgba(0, 173, 181, 0.8);
-  transition: box-shadow 0.2s ease;
 }
 
 /* Scroll Indicator */

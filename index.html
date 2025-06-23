@@ -24,6 +24,25 @@
                 <div class="hero-left">
                     <h1><span class="typewriter">KHYM NAD</span></h1>
                     <p>FullStack Developer</p>
+                    <!-- Moved social icons inside hero-left, under tagline -->
+                    <div class="social-icons hero-social-icons">
+                    <!-- GitHub Icon -->
+                    <a href="https://github.com/KhymNad" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+                        <svg role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <title>GitHub</title>
+                        <path d="M12 0.5C5.73 0.5 0.5 5.73 0.5 12.02c0 5.17 3.36 9.57 8.03 11.12.59.11.81-.26.81-.58 0-.29-.01-1.06-.02-2.08-3.27.71-3.96-1.58-3.96-1.58-.54-1.37-1.32-1.74-1.32-1.74-1.08-.74.08-.72.08-.72 1.2.09 1.83 1.24 1.83 1.24 1.06 1.81 2.78 1.29 3.46.99.11-.77.42-1.29.76-1.59-2.61-.3-5.36-1.31-5.36-5.83 0-1.29.46-2.35 1.22-3.18-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.13 3.17.76.83 1.22 1.89 1.22 3.18 0 4.53-2.75 5.52-5.37 5.82.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.29 0 .32.22.69.82.57 4.67-1.56 8.03-5.95 8.03-11.12C23.5 5.73 18.27.5 12 .5z"/>
+                        </svg>
+                    </a>
+
+                    <!-- LinkedIn Icon -->
+                    <a href="https://www.linkedin.com/in/khym-nad-76b262235" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+                        <svg role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                        <title>LinkedIn</title>
+                        <path d="M16 8a6 6 0 016 6v6h-4v-6a2 2 0 00-4 0v6h-4v-12h4v2a4 4 0 014-2zM2 9h4v12H2z"/>
+                        <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                    </div>
                 </div>
                 <div class="hero-right">
                     <img src="images/profile.jpg" alt="Profile" class="profile-img">
@@ -62,38 +81,55 @@
         </section>
 
         <section id="contact">
-        <div class="contact-flex">
-            <div class="contact-info">
-                <h2>Let's Connect!</h2>
-                <p>
-                    I'm always interested in new opportunities and internships. Feel free to reach out!
-                </p>
-                <div class="info-row">
-                    <!-- Email Icon SVG -->
-                    <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm0 2.236V20h16V8.236l-8 7.001-8-7.001z"/></svg>
-                    <span>khymanad@gmail.com</span>
+            <div class="social-icons mb-3">
+                <a href="#" target="_blank" aria-label="Generic Circle">
+                    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                    </svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Generic Square">
+                    <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <h2>Let's Connect!</h2>
+                    <p>I'm always interested in new opportunities and internships. Feel free to reach out!</p>
+                    <div class="info-row">
+                        <!-- Email Icon SVG -->
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm0 2.236V20h16V8.236l-8 7.001-8-7.001z"/>
+                        </svg>
+                        <span>khymanad@gmail.com</span>
+                    </div>
+                    <div class="info-row">
+                        <!-- Phone Icon SVG -->
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
+                        </svg>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="info-row">
+                        <!-- Location Icon SVG -->
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/>
+                        </svg>
+                        <span>Edmonton, AB</span>
+                    </div>
                 </div>
-                <div class="info-row">
-                    <!-- Phone Icon SVG -->
-                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/></svg>
-                    <span>+1 (555) 123-4567</span>
-                </div>
-                <div class="info-row">
-                    <!-- Location Icon SVG -->
-                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
-                    <span>Edmonton, AB</span>
+                <div class="contact-wrapper">
+                    <h2>Contact</h2>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name*" required>
+                        <input type="email" placeholder="Your Email*" required>
+                        <textarea rows="5" placeholder="Your Message*" required></textarea>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
                 </div>
             </div>
-            <div class="contact-wrapper">
-                <h2>Contact</h2>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name*" required>
-                    <input type="email" placeholder="Your Email*" required>
-                    <textarea rows="5" placeholder="Your Message*" required></textarea>
-                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                </form>
-            </div>
-        </div>
         </section>
     </main>
 

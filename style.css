@@ -46,19 +46,19 @@ p {
 }
 
 .hero::before {
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
+  width: 250%;
+  height: 250%;
+  top: -75%;
+  left: -75%;
   background: radial-gradient(circle, rgba(0,173,181,0.2) 0%, transparent 60%);
   animation: rotateGlow 60s linear infinite;
 }
 
 .hero::after {
-  width: 300%;
-  height: 300%;
-  top: -100%;
-  left: -100%;
+  width: 350%;
+  height: 350%;
+  top: -125%;
+  left: -125%;
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
   opacity: 0.02;
   animation: moveParticles 100s linear infinite;
@@ -125,7 +125,7 @@ p {
   margin-bottom: 1rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease 0.3s;
+  transition: all 0.6s ease 1.8s;
 }
 
 .hero-left h1 {
@@ -139,23 +139,71 @@ p {
 }
 
 .hero-right {
+  position: relative;
+  z-index: 1;
   flex: 1.5;
   min-width: 300px;
   text-align: left;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   padding: 3rem;
-  will-change: transform, box-shadow;
-  transform: translateZ(0);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
-.hero-right:hover {
-  transform: scale(1.02);
-  box-shadow: 0 12px 45px rgba(0,173,181, 0.3);
+.hero-right > p:first-of-type {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00adb5;
+  text-shadow: 0 0 8px rgba(0, 173, 181, 0.7);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  font-style: italic;
+  max-width: 1000px;
+}
+
+.hero-right p:not(:first-of-type) {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 700px;
+  color: #d0dfe3;
+}
+
+/* Border glow effect only around edges */
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #00adb5, #008f94, #5af0f7, #00adb5);
+  background-size: 400% 400%;
+  animation: rotateBorder 10s linear infinite;
+  z-index: -1;
+  filter: blur(8px);
+  pointer-events: none; /* allows clicks through */
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  padding: 0.5%; /* thickness of the glowing border */
+  box-sizing: border-box;
+}
+
+@keyframes rotateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
 }
 
 .hero-right p {

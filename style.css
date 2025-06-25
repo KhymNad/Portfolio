@@ -184,7 +184,7 @@ p {
   right: -2px;
   bottom: -2px;
   border-radius: inherit;
-  background: linear-gradient(135deg, #ffffff, #808080, #808080, #ffffff);
+  background: linear-gradient(135deg, #ffffff, #565656, #565656, #ffffff);
   background-size: 400% 400%;
   animation: rotateBorder 10s linear infinite;
   z-index: -1;

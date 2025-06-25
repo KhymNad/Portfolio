@@ -285,7 +285,7 @@ p {
   transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
   transform-origin: center;
   filter: drop-shadow(0 0 0 transparent);
-  animation: floatUpDown 2s ease-in-out infinite;
+  animation: floatUpDown 3s ease-in-out infinite;
   animation-play-state: paused;
   overflow: visible;
 }
@@ -312,19 +312,19 @@ p {
   stroke: #00adb5;
   filter: drop-shadow(0 0 8px #00adb5);
   transform: scale(1.1);
-  animation: floatUpDown 2s ease-in-out infinite;
+  animation: floatUpDown 3s ease-in-out infinite;
 }
 
-@keyframes floatUpDown {
+/* @keyframes floatUpDown {
   0%, 100% {
-    transform: translateY(0) scale(1.1);
-    filter: drop-shadow(0 0 8px #00adb5);
+    transform: translateY(0) scale(1.05);
+    filter: drop-shadow(0 0 6px #00adb5);
   }
   50% {
-    transform: translateY(-6px) scale(1.12);
-    filter: drop-shadow(0 0 12px #00adb5);
+    transform: translateY(-3px) scale(1.07);
+    filter: drop-shadow(0 0 8px #00adb5);
   }
-}
+} */
 
 /* Project Section */
 .projects-section {

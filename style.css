@@ -28,7 +28,7 @@ p {
 
 /* Hero Section and overlays */
 .hero {
-  border-top: 10px solid #ffffff;
+  /* border-top: 10px solid #ffffff; */
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -341,50 +341,126 @@ p {
   margin-bottom: 3rem;
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
 }
+
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 0 transparent;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+  transform: translateY(-4px) rotateX(1deg) rotateY(1deg);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+/* Screenshot Preview */
+.project-card img {
+  width: 100%;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  max-height: 200px;
+  background: #000;
 }
 
+/* Title */
 .project-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
+
+/* Description */
 .project-card p {
   color: #cccccc;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
 }
 
-.project-card .btn {
+/* Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-tag {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+/* Colored card variants */
+.project-card:nth-child(1) {
+  border-left: 4px solid #ffffff;
+}
+.project-card:nth-child(2) {
+  border-left: 4px solid #00adb5;
+}
+.project-card:nth-child(3) {
+  border-left: 4px solid #ff4136;
+}
+.project-card:nth-child(4) {
+  border-left: 4px solid #A4C639;
+}
+.project-card:nth-child(5) {
+  border-left: 4px solid #512bd4;
+}
+
+.project-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: left;
+  gap: 1rem;
+}
+
+.project-links .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #f0f0f0;
   background: transparent;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  transition: background 0.3s, color 0.3s;
+  color: #f0f0f0;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
-.project-card .btn:hover {
-  background: #ffffff;
-  color: #000000;
+.project-links .btn:hover {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.project-links .btn-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
 }
 
 /* Profile Image */

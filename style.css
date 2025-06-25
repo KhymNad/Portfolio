@@ -148,31 +148,74 @@ p {
   flex: 1.5;
   min-width: 300px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.06); /* subtle translucent */
+  backdrop-filter: blur(15px); /* frosted glass effect */
   border-radius: 20px;
-  padding: 3rem;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-  color: #f5f5f5;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15); /* soft glow */
+  color: #eee;
+  max-width: 700px;
+}
+
+/* .hero-right:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3);
+} */
+
+.hero-right .tagline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #fff;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
 .hero-right > p:first-of-type {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.06em;
   font-style: italic;
   max-width: 1000px;
 }
 
-.hero-right p:not(:first-of-type) {
-  font-size: 1.2rem;
+.hero-right h2 {
+  font-size: 2.6rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.hero-right p {
+  font-size: 1.15rem;
   line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-right p strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero-right p em {
+  font-style: italic;
+  color: #bbb;
+}
+
+.hero-right p:not(:first-of-type) {
+  font-size: 1.25rem;
+  line-height: 1.9;
   max-width: 700px;
   color: #dddddd;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
 
 /* Border glow effect only around edges */

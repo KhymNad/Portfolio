@@ -28,7 +28,7 @@ p {
 
 /* Hero Section and overlays */
 .hero {
-  border-top: 10px solid #ffffff;
+  /* border-top: 10px solid #ffffff; */
   position: relative;
   overflow: hidden;
   min-height: 100vh;

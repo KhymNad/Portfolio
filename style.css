@@ -331,6 +331,7 @@ p {
   background: #0a0a0a;
   padding: 5rem 2rem;
   text-align: center;
+  border-top: 2px solid #333;
 }
 
 .projects-section h2 {

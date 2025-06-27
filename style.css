@@ -3,7 +3,7 @@ body.dark-theme {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #000000, #111111);
-  color: #f5f5f5;
+  color: #000000;
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -836,6 +836,7 @@ p {
   background-color: transparent;
   font-size: 1.1rem;
   text-align: center;
+  border-color: #ffffff;
 }
 
 .contact-box:hover {
@@ -850,6 +851,12 @@ p {
 
 .resume-link {
   text-decoration: none;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 /* Footer */

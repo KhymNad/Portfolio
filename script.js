@@ -1,35 +1,17 @@
-// Smooth glowing custom cursor
-const cursor = document.querySelector('.cursor');
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let currentX = mouseX;
-let currentY = mouseY;
-const ease = 0.15;
-
-// window.addEventListener('mousemove', e => {
-//   mouseX = e.clientX;
-//   mouseY = e.clientY;
-// });
-
-// function animateCursor() {
-//   currentX += (mouseX - currentX) * ease;
-//   currentY += (mouseY - currentY) * ease;
-//   cursor.style.left = currentX + 'px';
-//   cursor.style.top = currentY + 'px';
-//   requestAnimationFrame(animateCursor);
-// }
-// animateCursor();
-
-// Fade-in on scroll (IntersectionObserver)
-const observer = new IntersectionObserver(entries => {
+// === Fade-In on Scroll (IntersectionObserver) ===
+const fadeObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    entry.target.classList.toggle('in-view', entry.isIntersecting);
+    if (entry.isIntersecting) {
+      entry.target.classList.add('fade-in');
+      fadeObserver.unobserve(entry.target); // Animate only once
+    }
   });
-}, { threshold: 0.2 });
+}, { threshold: 0.15 });
 
-document.querySelectorAll('.section, .hero').forEach(el => observer.observe(el));
+// Attach to all .fade-section elements
+document.querySelectorAll('.fade-section').forEach(el => fadeObserver.observe(el));
 
-// Scroll Indicator dots with section visibility detection
+// === Scroll Indicator Dots Sync ===
 const sections = document.querySelectorAll('section');
 const dots = document.querySelectorAll('.dot');
 const visibilityMap = new Map();
@@ -39,7 +21,6 @@ const dotObserver = new IntersectionObserver(entries => {
     visibilityMap.set(entry.target, entry.intersectionRatio);
   });
 
-  // Find the section with the highest intersection ratio
   let maxRatio = 0;
   let mostVisibleSection = null;
   for (const [section, ratio] of visibilityMap.entries()) {
@@ -49,7 +30,6 @@ const dotObserver = new IntersectionObserver(entries => {
     }
   }
 
-  // Remove active class from all dots
   dots.forEach(dot => dot.classList.remove('active'));
 
   if (mostVisibleSection) {
@@ -57,7 +37,6 @@ const dotObserver = new IntersectionObserver(entries => {
     const activeDot = [...dots].find(dot => dot.getAttribute('href')?.includes(sectionId));
     if (activeDot) activeDot.classList.add('active');
   } else {
-    // Default to first dot if no section is visible
     dots[0]?.classList.add('active');
   }
 }, {
@@ -66,14 +45,39 @@ const dotObserver = new IntersectionObserver(entries => {
 
 sections.forEach(section => dotObserver.observe(section));
 
-// Tagline and social icons fade-in after typing animation (only once)
+// === Hero Tagline & Social Icons Fade-In ===
 document.addEventListener('DOMContentLoaded', () => {
   const tagline = document.querySelector('.hero-left p');
   const socialIcons = document.querySelector('.social-icons');
 
-  // Adjust timeout duration to your typing animation length (e.g., 1500ms)
   setTimeout(() => {
     if (tagline) tagline.classList.add('animated');
     if (socialIcons) socialIcons.classList.add('animated');
-  }, 1);
+  }, 1); // Match to typewriter timing if needed
+});
+
+// === Education & Experience Tabs ===
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remove active class from all buttons
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+
+    // Show the selected tab
+    const selected = btn.getAttribute('data-tab');
+    document.getElementById(selected).style.display = 'block';
+  });
+});
+// === Smooth Scrolling for Navigation Links ===
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tc => tc.style.display = 'none');
+
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).style.display = 'block';
+  });
 });

@@ -103,3 +103,32 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     }, 200);
   });
 });
+const fadeObserverSection = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const section = entry.target;
+      const header = section.querySelector('.section-header');
+      const content = section.querySelector('.section-content');
+
+      if (header) {
+        header.classList.add('fade-in');
+        // Wait for header animation then fade in content
+        setTimeout(() => {
+          if (content) content.classList.add('fade-in');
+        }, 400); // 400ms delay matches CSS transition-delay
+      } else if (content) {
+        // If no header, fade in content immediately
+        content.classList.add('fade-in');
+      }
+
+      fadeObserverSection.unobserve(section);
+    }
+  });
+}, { threshold: 0.15 });
+
+// Observe only the sections (not headers)
+document.querySelectorAll('.fade-section').forEach(section => {
+  fadeObserverSection.observe(section);
+});
+
+

@@ -74,10 +74,32 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 // === Smooth Scrolling for Navigation Links ===
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(tc => tc.style.display = 'none');
+    const targetId = btn.getAttribute('data-tab');
 
+    // Remove 'active' class from all buttons
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById(btn.dataset.tab).style.display = 'block';
+
+    // Get both tab contents
+    const education = document.getElementById('education');
+    const certificates = document.getElementById('certificates');
+
+    // Hide all tabs with fade-out
+    [education, certificates].forEach(tab => {
+      tab.classList.add('fade-out');
+    });
+
+    setTimeout(() => {
+      // Actually hide the tabs
+      education.style.display = 'none';
+      certificates.style.display = 'none';
+      education.classList.remove('fade-out');
+      certificates.classList.remove('fade-out');
+
+      // Show target tab with fade-in
+      const target = document.getElementById(targetId);
+      target.style.display = 'block';
+      target.classList.add('tab-content'); // triggers fadeIn animation
+    }, 200);
   });
 });

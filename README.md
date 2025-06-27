@@ -60,13 +60,4 @@ Feel free to reach out if you'd like to collaborate, hire, or chat about dev wor
 
 ## 🗂 Folder Structure
 
-├── index.html
-├── style.css
-├── script.js
-├── images/
-│ ├── portfolio-thumb.jpg
-│ ├── social-thumb.jpg
-│ └── ...
-├── assets/
-│ └── khym_nad_resume.pdf
-└── README.md
+<pre><code>```txt Portfolio/ ├── index.html ├── style.css ├── script.js ├── assets/ │ └── khym_nad_resume.pdf ├── images/ │ ├── portfolio-thumb.jpg │ ├── social-thumb.jpg │ ├── neuromance-thumb.jpg │ └── android-scheduler-thumb2.jpg ├── sections/ │ ├── hero.html │ ├── projects.html │ ├── skills.html │ └── contact.html └── README.md ```</code></pre>

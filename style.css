@@ -7,8 +7,43 @@ body.dark-theme {
   color: #000000;
   min-height: 100vh;
   overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fade-in effect for dark theme */
+body.dark-theme.fade-in {
+  opacity: 1;
+}
+
+/* Hide default cursor */
+body, button, a {
+  cursor: none;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;             /* slightly bigger */
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.7); /* white transparent outline */
+  border-radius: 50%;
+  background-color: transparent;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  z-index: 9999;
+  mix-blend-mode: difference; /* or remove if you used something else */
+}
+
+.custom-cursor.hover {
+  width: 20px;             /* smaller circle on hover */
+  height: 20px;
+  border-color: rgba(255, 255, 255, 1); /* fully opaque white border on hover */
 }
 
 /* Headings */
@@ -127,17 +162,17 @@ p {
   letter-spacing: 2px;
   text-transform: uppercase;
   margin: 0 auto 0.5rem 0;
-  width: fit-content;
+  width: 0;
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid #ffffff;
-  animation: typing 1.5s steps(15, end) forwards, blinkCursor 0.7s step-end 2 forwards;
+  animation: none;
   color: #ffffff;
 }
 
 @keyframes typing {
   from { width: 0; }
-  to { width: 9ch; }
+  to { width: 10ch; }
 }
 
 @keyframes blinkCursor {

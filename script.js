@@ -45,6 +45,20 @@ const dotObserver = new IntersectionObserver(entries => {
 
 sections.forEach(section => dotObserver.observe(section));
 
+// === Typing Animation for Hero Heading ===
+document.addEventListener('DOMContentLoaded', () => {
+  // Start page fade-in
+  document.body.classList.add('fade-in');
+
+  // After fade-in duration, trigger typing animation
+  setTimeout(() => {
+    const heading = document.querySelector('.hero-left h1');
+    if (heading) {
+      heading.style.animation = 'typing 1.5s steps(15, end) forwards, blinkCursor 0.7s step-end 2 forwards';
+    }
+  }, 1000);
+});
+
 // === Hero Tagline & Social Icons Fade-In ===
 document.addEventListener('DOMContentLoaded', () => {
   const tagline = document.querySelector('.hero-left p');
@@ -53,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     if (tagline) tagline.classList.add('animated');
     if (socialIcons) socialIcons.classList.add('animated');
-  }, 1); // Match to typewriter timing if needed
+  }, 1100); // Match to typewriter timing if needed
 });
 
 // === Education & Experience Tabs ===
@@ -130,5 +144,64 @@ const fadeObserverSection = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-section').forEach(section => {
   fadeObserverSection.observe(section);
 });
+
+// === Certificates Scroll on Hover ===
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollContainer = document.querySelector('.certificates-scroll-container');
+  const certCards = document.querySelectorAll('.cert-card');
+
+  certCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    });
+  });
+});
+
+// === Fade-In Transition for Body on Load ===
+document.addEventListener('DOMContentLoaded', () => {
+  // Add the 'fade-in' class to body to start the fade-in transition
+  document.body.classList.add('fade-in');
+});
+
+// === Custom Cursor Implementation ===
+const cursor = document.createElement('div');
+cursor.classList.add('custom-cursor');
+document.body.appendChild(cursor);
+
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+const speed = 0.15;
+
+window.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  cursorX += (mouseX - cursorX) * speed;
+  cursorY += (mouseY - cursorY) * speed;
+
+  cursor.style.top = `${cursorY}px`;
+  cursor.style.left = `${cursorX}px`;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+// Interactable elements to trigger cursor compression
+const interactables = ['a', 'button', 'input', 'textarea', 'select', '.cert-card'];
+
+interactables.forEach(selector => {
+  document.querySelectorAll(selector).forEach(elem => {
+    elem.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    elem.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+});
+
 
 

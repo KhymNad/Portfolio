@@ -52,7 +52,7 @@ This portfolio is built to highlight my technical expertise, personal projects, 
 
 Feel free to reach out if you'd like to collaborate, hire, or chat about dev work:
 
-- **Email:** khym.nad@example.com  
+- **Email:** khymanad@gmail.com  
 - **LinkedIn:** [linkedin.com/in/khymnad](https://www.linkedin.com/in/khym-nad-76b262235)  
 - **GitHub:** [@KhymNad](https://github.com/KhymNad)
 

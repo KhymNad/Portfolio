@@ -467,16 +467,21 @@ p {
 .project-card:nth-child(1) {
   border-left: 4px solid #ffffff;
 }
+
 .project-card:nth-child(2) {
-  border-left: 4px solid #00adb5;
+  border-left: 4px solid #00ae4d;
 }
+
 .project-card:nth-child(3) {
-  border-left: 4px solid #ff4136;
+  border-left: 4px solid #8800ff;
 }
 .project-card:nth-child(4) {
-  border-left: 4px solid #ADD827;
+  border-left: 4px solid #00adb5;
 }
 .project-card:nth-child(5) {
+  border-left: 4px solid #ADD827;
+}
+.project-card:nth-child(6) {
   border-left: 4px solid #512bd4;
 }
 

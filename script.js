@@ -2,17 +2,22 @@
 window.addEventListener("load", () => {
   const splash = document.getElementById("splash");
   const main = document.querySelector("main");
+  const body = document.body;
 
-  // Show splash for 1.5s, then start fade out
+  // Add scroll lock while splash is active
+  body.classList.add("lock-scroll");
+
+  // Wait before fading out splash
   setTimeout(() => {
     splash.classList.add("fade-out");
 
-    // Wait for splash transition to finish (1s), then reveal main
+    // After splash is gone, reveal main and unlock scroll
     setTimeout(() => {
       splash.style.display = "none";
       main.classList.add("reveal");
-    }, 1000); // Matches CSS splash transition duration
-  }, 2500); // Splash visible for 1.5s before fade
+      body.classList.remove("lock-scroll"); // Unlock scroll and interactions
+    }, 1000); // Matches splash fade-out duration
+  }, 1500); // Initial splash display time
 });
 
 // === Fade-In on Scroll (IntersectionObserver) ===

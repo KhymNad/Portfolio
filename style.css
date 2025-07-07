@@ -28,8 +28,15 @@ main.reveal {
   opacity: 1;
 }
 
+/* Lock scroll and interactions */
+body.lock-scroll {
+  overflow: hidden;
+  pointer-events: none;
+}
+
 /* Splash screen */
 #splash {
+  pointer-events: all;
   position: fixed;
   inset: 0;
   background: #0b0b0b;
@@ -66,8 +73,8 @@ body, button, a {
   position: fixed;
   top: 0;
   left: 0;
-  width: 50px;            
-  height: 50px;
+  width: 60px;            
+  height: 60px;
   border: 2px solid rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   background-color: transparent;
@@ -79,8 +86,8 @@ body, button, a {
 }
 
 .custom-cursor.hover {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-color: rgba(255, 255, 255, 1);
 }
 
@@ -170,7 +177,6 @@ p {
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid #ffffff;
-  animation: none;
   color: #ffffff;
 }
 

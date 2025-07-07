@@ -93,46 +93,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000000;
+  background: #0b0b0b;
   z-index: 0;
   border-bottom: 2px solid #333;
-}
-
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero::before {
-  width: 250%;
-  height: 250%;
-  top: -75%;
-  left: -75%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-  animation: rotateGlow 60s linear infinite;
-}
-
-.hero::after {
-  width: 350%;
-  height: 350%;
-  top: -125%;
-  left: -125%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  opacity: 0.015;
-  animation: moveParticles 100s linear infinite;
-}
-
-@keyframes rotateGlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes moveParticles {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(200px, 150px); }
 }
 
 /* Hero container */
@@ -148,6 +111,7 @@ p {
   flex-wrap: wrap;
 }
 
+/* Hero left */
 .hero-left {
   flex: 1;
   min-width: 300px;
@@ -155,6 +119,8 @@ p {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-left h1 {
@@ -200,34 +166,73 @@ p {
   transform: translateY(0);
 }
 
+/* Hero right */
 .hero-right {
-  position: relative;
-  z-index: 1;
-  flex: 1.5;
-  min-width: 300px;
-  text-align: left;
-  background: rgba(255, 255, 255, 0.06); /* subtle translucent */
-  backdrop-filter: blur(15px); /* frosted glass effect */
+  width: 700px;
+  margin-bottom: 1%;
   border-radius: 20px;
-  padding: 3rem 2.5rem;
-  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15); /* soft glow */
-  color: #eee;
-  max-width: 700px;
+  backdrop-filter: blur(15px);
+  flex: 1.5;
+  z-index: 0;
+  padding: 2px;
 }
 
-/* .hero-right:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.3);
-} */
+.box {
+  background-color:#0b0b0b;
+  padding: 2px;
+  border-radius: 20px;
+  z-index: 1;
+}
 
-.hero-right .tagline {
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-style: italic;
-  color: #fff;
-  margin-bottom: 2rem;
-  letter-spacing: 0.05em;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+.content{
+  padding: 4rem 2rem;
+  font-size: xx-large;
+  z-index: 1;
+}
+
+/* Pseudo-elements */
+.hero-right::after,
+.hero-right::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  filter: blur(25px);
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 0deg,
+    rgba(255, 255, 255, 0.2) 10deg,
+    transparent 180deg,
+    rgba(255, 255, 255, 0.15) 90deg,
+    transparent 360deg
+  );
+  animation: animate 7s linear infinite;
+  z-index: 0;
+}
+
+.hero-right::before {
+  filter: blur(4px);
+  opacity: 0.6;
+}
+
+/* Animate conic angle */
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes animate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.hero-right > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-right > p:first-of-type {
@@ -274,42 +279,6 @@ p {
   color: #dddddd;
   letter-spacing: 0.02em;
   text-shadow: 0 0 8px rgba(0,0,0,0.2);
-}
-
-/* Border glow effect only around edges */
-.hero-right::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, #ffffff, #565656, #565656, #ffffff);
-  background-size: 400% 400%;
-  animation: rotateBorder 10s linear infinite;
-  z-index: -1;
-  filter: blur(8px);
-  pointer-events: none; /* allows clicks through */
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: destination-out;
-  padding: 0.5%; /* thickness of the glowing border */
-  box-sizing: border-box;
-}
-
-@keyframes rotateBorder {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 400% 50%;
-  }
 }
 
 .hero-right p {
@@ -412,7 +381,6 @@ p {
   perspective: 1000px;
 }
 
-
 .project-card:hover {
   transform: translateY(-4px) rotateX(1deg) rotateY(1deg);
   box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
@@ -435,7 +403,6 @@ p {
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
-
 
 /* Description */
 .project-card p {
@@ -622,7 +589,7 @@ p {
 
 /* Certificates cards container */
 .edu-cert-section {
-  background-color: #0c0c0c;
+  background-color: #0b0b0b;
   padding: 6rem 1rem;
   color: #f5f5f5;
   border-bottom: 2px solid #333;
@@ -689,7 +656,7 @@ p {
 }
 
 .edu-cert-section {
-  background-color: #0c0c0c;
+  background-color: #0b0b0b;
   padding: 6rem 1rem;
   color: #f5f5f5;
   border-bottom: 2px solid #333;

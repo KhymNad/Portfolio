@@ -1,3 +1,20 @@
+// ==== Splash Screen & Fade-In Transition for Main on Load ===
+window.addEventListener("load", () => {
+  const splash = document.getElementById("splash");
+  const main = document.querySelector("main");
+
+  // Show splash for 1.5s, then start fade out
+  setTimeout(() => {
+    splash.classList.add("fade-out");
+
+    // Wait for splash transition to finish (1s), then reveal main
+    setTimeout(() => {
+      splash.style.display = "none";
+      main.classList.add("reveal");
+    }, 1000); // Matches CSS splash transition duration
+  }, 2500); // Splash visible for 1.5s before fade
+});
+
 // === Fade-In on Scroll (IntersectionObserver) ===
 const fadeObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -159,12 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-});
-
-// === Fade-In Transition for Body on Load ===
-document.addEventListener('DOMContentLoaded', () => {
-  // Add the 'fade-in' class to body to start the fade-in transition
-  document.body.classList.add('fade-in');
 });
 
 // === Custom Cursor Implementation ===

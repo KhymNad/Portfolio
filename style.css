@@ -2,7 +2,6 @@
 body.dark-theme {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #000000, #111111);
   background-color: #000;
   color: #000000;
   min-height: 100vh;
@@ -16,6 +15,45 @@ body.dark-theme {
 /* Fade-in effect for dark theme */
 body.dark-theme.fade-in {
   opacity: 1;
+}
+
+/* Hide <main> by default */
+main {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Show <main> after splash */
+main.reveal {
+  opacity: 1;
+}
+
+/* Splash screen */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: #0b0b0b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease, visibility 0s linear 1s;
+}
+
+#splash.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#splash h1 {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 /* Hide default cursor */

@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
       main.classList.add("reveal");
       body.classList.remove("lock-scroll"); // Unlock scroll and interactions
     }, 1000); // Matches splash fade-out duration
-  }, 1500); // Initial splash display time
+  }, 2500); // Initial splash display time
 });
 
 // === Fade-In on Scroll (IntersectionObserver) ===

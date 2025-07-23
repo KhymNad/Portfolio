@@ -527,6 +527,14 @@ p {
   stroke: currentColor;
 }
 
+.two-project-links {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
 /* Profile Image */
 .profile-img {
   width: 150px;
